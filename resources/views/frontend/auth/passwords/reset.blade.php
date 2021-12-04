@@ -3,7 +3,7 @@
 @section('title', __('Reset Password'))
 
 @section('content')
-    <div class="container py-4">
+    {{-- <div class="container py-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <x-frontend.card>
@@ -49,5 +49,5 @@
                 </x-frontend.card>
             </div><!--col-md-8-->
         </div><!--row-->
-    </div><!--container-->
+    </div><!--container--> --}}
 @endsection

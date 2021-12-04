@@ -1,12 +1,15 @@
 @inject('model', '\App\Domains\Auth\Models\User')
 
-@extends('backend.layouts.app')
+@extends('frontend.layouts.app')
 
 @section('title', __('Update User'))
 
 @section('content')
+<div class="content">
     <x-forms.patch :action="route('admin.auth.user.update', $user)">
         <x-backend.card>
+
+
             <x-slot name="header">
                 @lang('Update User')
             </x-slot>
@@ -16,6 +19,7 @@
             </x-slot>
 
             <x-slot name="body">
+                @include('includes.partials.messages')
                 <div x-data="{userType : '{{ $user->type }}'}">
                     @if (!$user->isMasterAdmin())
                         <div class="form-group row">
@@ -23,7 +27,10 @@
 
                             <div class="col-md-10">
                                 <select name="type" class="form-control" required x-on:change="userType = $event.target.value">
-                                    <option value="{{ $model::TYPE_USER }}" {{ $user->type === $model::TYPE_USER ? 'selected' : '' }}>@lang('User')</option>
+
+                                    <option value="{{ $model::TYPE_TEACHER }}" {{ $user->type === $model::TYPE_TEACHER ? 'selected' : '' }}>@lang('Teacher')</option>
+                                    <option value="{{ $model::TYPE_STUDENT }}" {{ $user->type === $model::TYPE_STUDENT ? 'selected' : '' }}>@lang('Student')</option>
+
                                     <option value="{{ $model::TYPE_ADMIN }}" {{ $user->type === $model::TYPE_ADMIN ? 'selected' : '' }}>@lang('Administrator')</option>
                                 </select>
                             </div>
@@ -45,14 +52,6 @@
                             <input type="email" name="email" id="email" class="form-control" placeholder="{{ __('E-mail Address') }}" value="{{ old('email') ?? $user->email }}" maxlength="255" required />
                         </div>
                     </div><!--form-group-->
-
-                    @if (!$user->isMasterAdmin())
-                        @include('backend.auth.includes.roles')
-
-                        @if (!config('boilerplate.access.user.only_roles'))
-                            @include('backend.auth.includes.permissions')
-                        @endif
-                    @endif
                 </div>
             </x-slot>
 
@@ -61,4 +60,5 @@
             </x-slot>
         </x-backend.card>
     </x-forms.patch>
+</div>
 @endsection

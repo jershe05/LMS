@@ -112,7 +112,7 @@ Route::group([
     Route::group([
         'prefix' => 'role',
         'as' => 'role.',
-        'middleware' => 'role:'.config('boilerplate.access.role.admin'),
+
     ], function () {
         Route::get('/', [RoleController::class, 'index'])
             ->name('index')

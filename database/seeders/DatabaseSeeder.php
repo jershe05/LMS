@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Database\Seeders\SubjectSeeder;
 use Database\Seeders\Traits\TruncateTable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
@@ -27,6 +28,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(AuthSeeder::class);
         $this->call(AnnouncementSeeder::class);
+        $this->call(SubjectSeeder::class);
 
         Model::reguard();
     }

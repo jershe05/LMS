@@ -1,8 +1,9 @@
-@extends('backend.layouts.app')
+@extends('frontend.layouts.app')
 
-@section('title', __('Role Management'))
+@section('title', __('Dashboard'))
 
 @section('content')
+<div class="content">
     <x-backend.card>
         <x-slot name="header">
             @lang('Role Management')
@@ -21,4 +22,5 @@
             <livewire:backend.roles-table />
         </x-slot>
     </x-backend.card>
+</div>
 @endsection

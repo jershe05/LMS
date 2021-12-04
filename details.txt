@@ -1,0 +1,36 @@
+Teacher
+  full name
+  subject id
+  grade level
+
+
+students
+  parents id
+  full name
+  birthdate
+  gender
+  grade level
+
+subject
+  grade level
+  subject name
+  
+class
+  teacher_id
+  grade level
+  subject_id
+  grade
+  year
+
+  
+Resources
+  class_id
+  resourcelink
+
+events
+  date
+  description
+
+grades
+  period
+	
