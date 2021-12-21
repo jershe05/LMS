@@ -11,6 +11,9 @@
     "require": {
         "php": "^7.4|^8.0",
         "arcanedev/log-viewer": "8.x",
+        "bensampo/laravel-embed": "^1.3",
+        "cohensive/embed": "5.5.*",
+        "cohensive/oembed": "^0.11.1",
         "darkghosthunter/laraguard": "^3.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",

@@ -21,5 +21,6 @@ Route::delete('class', [ClassController::class, 'delete'])->name('class.destroy'
 Route::put('class', [ClassController::class, 'update'])->name('class.update');
 Route::get('class/edit/{class}', [ClassController::class, 'edit'])->name('class.edit');
 Route::get('teacher', [TeacherController::class, 'index'])->name('teacher.index');
+Route::get('teacher/class/{teacher}', [TeacherController::class, 'classe'])->name('teacher.class');
 Route::get('student', [studentController::class, 'index'])->name('student.index');
 

@@ -21,7 +21,7 @@
                   </div>
                 </div>
                 <div class="table-responsive">
-                  <table class="table">
+                  {{-- <table class="table">
                     <thead class=" text-primary">
                       <tr>
                             <th>Type</th>
@@ -50,7 +50,8 @@
 
 
                  </tbody>
-                  </table>
+                  </table> --}}
+                  <livewire:backend.users-table />
                 </div>
               </div>
             </div>

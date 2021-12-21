@@ -7,16 +7,15 @@
     <x-backend.card>
         <x-slot name="header">
             <x-utils.link
-                icon="c-icon cil-plus"
-                class="card-header-action text-dark"
-                :href="route('admin.auth.user.create')"
-                :text="__('Add Student')"
-            />
+            icon="c-icon cil-plus"
+            class="card-header-action text-dark"
+            :href="route('admin.auth.user.create')"
+            :text="__('Add Class')"
+        />
+
         </x-slot>
-
-
         <x-slot name="body">
-            <livewire:student-table />
+            <livewire:teacher-class-table teacherId="{{ $teacher->id }}" />
         </x-slot>
     </x-backend.card>
   </div>

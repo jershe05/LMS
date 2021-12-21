@@ -50,7 +50,7 @@ class UserController
      */
     public function index()
     {
-
+       
         return view('backend.auth.user.index')->with('users', User::all());
     }
 

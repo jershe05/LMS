@@ -1,6 +1,7 @@
 <?php
 namespace App\Domains\Class\Models;
 
+use App\Domains\Subject\Models\Subject;
 use Illuminate\Database\Eloquent\Model;
 
 class ModelClass extends Model
@@ -25,9 +26,18 @@ class ModelClass extends Model
         ->first();
     }
 
-    public function schedule()
+    public function schedules()
     {
-        return  $this->join('class_schedules', 'class_schedules.class_id', '=', 'classes.id')
-            ->first();
+        return  $this->hasMany(Schedule::class);
+    }
+
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class);
+    }
+
+    public function students()
+    {
+        return $this->hasMany(StudentClass::class, 'class_id', 'id');
     }
 }

@@ -47,14 +47,12 @@ class UsersTable extends DataTableComponent
      */
     public function query(): Builder
     {
-        $query = User::with('roles', 'twoFactorAuth')->withCount('twoFactorAuth');
+        $query = User::query();
 
         if ($this->status === 'deleted') {
             $query = $query->onlyTrashed();
         } elseif ($this->status === 'deactivated') {
             $query = $query->onlyDeactivated();
-        } else {
-            $query = $query->onlyActive();
         }
 
         return $query
@@ -103,12 +101,6 @@ class UsersTable extends DataTableComponent
                 ->sortable(),
             Column::make(__('E-mail'), 'email')
                 ->sortable(),
-            Column::make(__('Verified'), 'email_verified_at')
-                ->sortable(),
-            Column::make(__('2FA'), 'two_factor_auth_count')
-                ->sortable(),
-            Column::make(__('Roles')),
-            Column::make(__('Additional Permissions')),
             Column::make(__('Actions')),
         ];
     }

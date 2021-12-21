@@ -34,41 +34,7 @@
                   </div>
                   <div class="card-body table-responsive">
 
-                    <table class="table table-hover">
-                      <thead class="text-warning">
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Classes</th>
-                        <th>Grades</th>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>Dakota Rice</td>
-                          <td>$36,738</td>
-                          <td>Niger</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>Minerva Hooper</td>
-                          <td>$23,789</td>
-                          <td>Curaçao</td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>Sage Rodriguez</td>
-                          <td>$56,142</td>
-                          <td>Netherlands</td>
-                        </tr>
-                        <tr>
-                          <td>4</td>
-                          <td>Philip Chaney</td>
-                          <td>$38,735</td>
-                          <td>Korea, South</td>
-                        </tr>
-                      </tbody>
-                    </table>
-
+                    <livewire:student-list classId="{{ $details->id }}" />
 
                   </div>
                 </div>
@@ -79,12 +45,147 @@
                         @lang('Add Student')
                     </x-slot>
                     <x-slot name="body">
-                        <livewire:student-table />
+                        <livewire:class-add-student classId="{{ $details->id }}" />
                     </x-slot>
                 </x-backend.card>
               </div>
             </div>
         </x-slot>
+    </x-backend.card>
+
+    <x-backend.card>
+        <x-slot name="header">
+            @lang('Schedules')
+        </x-slot>
+        <x-slot name="body">
+              <div class="d-flex justify-content-start">
+              <div class="col-lg-6 col-md-12">
+                <div class="card">
+                  <div class="card-header card-header-success">
+                    <h4 class="card-title" wire:click="add">Schedules</h4>
+                  </div>
+                  <div class="card-body table-responsive">
+
+                    <livewire:class-schedule-table classId="{{ $details->id }}" />
+                  </div>
+                </div>
+              </div>
+              <div class="pl-5 w-50">
+                <x-backend.card>
+                    <x-slot name="header">
+                        @lang('Add Schedule')
+                    </x-slot>
+                    <x-slot name="body">
+
+                        <livewire:class-schedule classId="{{ $details->id }}" />
+
+                    </x-slot>
+                </x-backend.card>
+              </div>
+            </div>
+        </x-slot>
+
+
+    </x-backend.card>
+    <x-backend.card>
+        <x-slot name="header">
+            @lang('Meetings')
+        </x-slot>
+        <x-slot name="body">
+              <div class="d-flex justify-content-start">
+              <div class="col-lg-6 col-md-12">
+                <div class="card">
+                  <div class="card-header card-header-warning">
+                    <h4 class="card-title" wire:click="add">Meetings</h4>
+                  </div>
+                  <div class="card-body table-responsive">
+                    <livewire:online-meeting-table classId="{{ $details->id }}" />
+                  </div>
+                </div>
+              </div>
+              <div class="pl-5 w-50">
+                <x-backend.card>
+                    <x-slot name="header">
+                        @lang('Add Meeting')
+                    </x-slot>
+                    <x-slot name="body">
+
+                        <livewire:add-online-meeting classId="{{ $details->id }}" />
+
+                    </x-slot>
+                </x-backend.card>
+              </div>
+            </div>
+        </x-slot>
+
+
+    </x-backend.card>
+
+    <x-backend.card>
+        <x-slot name="header">
+            @lang('Modules')
+        </x-slot>
+        <x-slot name="body">
+              <div class="d-flex justify-content-start">
+              <div class="col-lg-6 col-md-12">
+                <div class="card">
+                  <div class="card-header card-header-danger">
+                    <h4 class="card-title" wire:click="add">Modules</h4>
+                  </div>
+                  <div class="card-body table-responsive">
+                    <livewire:module-table classId="{{ $details->id }}" />
+                  </div>
+                </div>
+              </div>
+              <div class="pl-5 w-50">
+                <x-backend.card>
+                    <x-slot name="header">
+                        @lang('Add Module')
+                    </x-slot>
+                    <x-slot name="body">
+
+                        <livewire:add-module classId="{{ $details->id }}" />
+
+                    </x-slot>
+                </x-backend.card>
+              </div>
+            </div>
+        </x-slot>
+
+
+    </x-backend.card>
+    <x-backend.card>
+        <x-slot name="header">
+            @lang('Grades')
+        </x-slot>
+        <x-slot name="body">
+              <div class="d-flex justify-content-start">
+              <div class="col-lg-8 col-md-12">
+                <div class="card">
+                  <div class="card-header card-header-primary">
+                    <h4 class="card-title" wire:click="add">Grades</h4>
+                  </div>
+                  <div class="card-body table-responsive">
+                    <livewire:grade-table classId="{{ $details->id }}" />
+                  </div>
+                </div>
+              </div>
+              <div class="pl-5 w-50">
+                <x-backend.card>
+                    <x-slot name="header">
+                        @lang('Add Grade')
+                    </x-slot>
+                    <x-slot name="body">
+
+                        <livewire:add-grade classId="{{ $details->id }}" />
+
+                    </x-slot>
+                </x-backend.card>
+              </div>
+            </div>
+        </x-slot>
+
+
     </x-backend.card>
   </div>
 @endsection
