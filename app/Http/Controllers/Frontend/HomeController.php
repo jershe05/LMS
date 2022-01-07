@@ -12,9 +12,18 @@ class HomeController
      */
     public function index()
     {
-        if(auth()->user()->type === 'teacher')
+        if(auth()->check())
         {
-            return view('backend.teacher.dashboard');
+            if(auth()->user()->type === 'teacher')
+            {
+                return view('backend.teacher.dashboard');
+            }
+
+            if(auth()->user()->type === 'student')
+            {
+                return view('backend.student.dashboard');
+            }
+            return;
         }
         return view('frontend.auth.login');
     }

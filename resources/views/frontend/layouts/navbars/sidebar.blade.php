@@ -14,11 +14,18 @@
         <li class="nav-item">
       {{-- <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}"> --}}
         {{-- <a class="nav-link" href="{{ route('home') }}"> --}}
-            <a class="nav-link" href="{{ route('admin.dashboard') }}" >
+            @if(Auth::user()->type === 'admin')
+                <a class="nav-link" href="{{ route('admin.dashboard') }}" >
+            @else
+                <a class="nav-link" href="{{ route('frontend.index') }}" >
+            @endif
+
           <i class="material-icons">dashboard</i>
             <p>{{ __('Dashboard') }}</p>
         </a>
+
       </li>
+      @if(Auth::user()->type === 'admin')
       <li class="nav-item">
         {{-- <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}"> --}}
         <a class="nav-link" data-toggle="collapse" href="#settings" aria-expanded="true">
@@ -116,7 +123,7 @@
           </ul>
         </div>
       </li>
+    @endif
 
-     
   </div>
 </div>

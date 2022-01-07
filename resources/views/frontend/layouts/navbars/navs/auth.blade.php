@@ -3,7 +3,15 @@
   <div class="container-fluid">
     <div class="navbar-wrapper">
       {{-- <a class="navbar-brand" href="#">{{ $titlePage }}</a> --}}
-      <a class="navbar-brand" href="#">Welcome Admin</a>
+      <a class="navbar-brand" href="#">
+          @if(Auth::user()->type === 'teacher')
+            Welcome Teacher {{ Auth::user()->name }}
+          @elseif (Auth::user()->type === 'student')
+            Welcome {{ Auth::user()->name }}
+          @else
+            Welcome Admin
+          @endif
+    </a>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
     <span class="sr-only">Toggle navigation</span>

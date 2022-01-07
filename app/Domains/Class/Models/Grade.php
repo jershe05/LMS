@@ -23,4 +23,9 @@ class Grade extends Model
     {
         return $this->hasOne(User::class, 'id', 'user_id');
     }
+
+    public function class()
+    {
+        return $this->hasOne(ModelClass::class, 'id', 'class_id');
+    }
 }

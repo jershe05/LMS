@@ -28,7 +28,7 @@ class ModelClass extends Model
 
     public function schedules()
     {
-        return  $this->hasMany(Schedule::class);
+        return $this->hasMany(Schedule::class, 'class_id', 'id');
     }
 
     public function subject()
@@ -40,4 +40,15 @@ class ModelClass extends Model
     {
         return $this->hasMany(StudentClass::class, 'class_id', 'id');
     }
+
+    public function onlineMeetings()
+    {
+        return $this->hasMany(OnlineMeeting::class, 'class_id', 'id');
+    }
+
+    public function modules()
+    {
+        return $this->hasMany(Module::class, 'class_id', 'id');
+    }
+
 }

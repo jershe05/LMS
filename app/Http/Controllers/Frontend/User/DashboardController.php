@@ -12,10 +12,18 @@ class DashboardController
      */
     public function index()
     {
+
+        if(auth()->user()->type === "student")
+        {
+            return view('backend.student.dashboard');
+        }
+
         if(auth()->user()->type === "teacher")
         {
             return view('backend.teacher.dashboard');
         }
+
+
         return view('frontend.user.dashboard');
     }
 }

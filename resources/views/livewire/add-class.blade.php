@@ -34,7 +34,7 @@
                                 </span>
                               </div>
                               <select wire:model="teacher" class="form-control" wire:ignore.self>
-
+                                <option value="" selected>Choose</option>
                                   @foreach ($teachers as $cher)
                                     @if($teacher === $cher)
                                         <option value="{{ $cher->id }}" selected>{{ $cher->name }}</option>

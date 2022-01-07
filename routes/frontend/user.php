@@ -1,5 +1,6 @@
 <?php
 
+use App\Domains\Class\Http\Controllers\ClassController;
 use App\Http\Controllers\Frontend\User\AccountController;
 use App\Http\Controllers\Frontend\User\DashboardController;
 use App\Http\Controllers\Frontend\User\ProfileController;
@@ -27,4 +28,15 @@ Route::group(['as' => 'user.', 'middleware' => ['auth', 'password.expires', conf
         });
 
     Route::patch('profile/update', [ProfileController::class, 'update'])->name('profile.update');
+
 });
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('add/class', [ClassController::class, 'create'])->name('class.create');
+    Route::get('class', [ClassController::class, 'index'])->name('class.index');
+    Route::get('class/show/{class}', [ClassController::class, 'show'])->name('class.show');
+    Route::delete('class', [ClassController::class, 'delete'])->name('class.destroy');
+    Route::put('class', [ClassController::class, 'update'])->name('class.update');
+    Route::get('class/edit/{class}', [ClassController::class, 'edit'])->name('class.edit');
+});
+
